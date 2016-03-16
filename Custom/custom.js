@@ -202,7 +202,7 @@ $('#resetGroup').click(function() {
 });
 
 $('#resetPmulti').click(function() {
-  pmultiCount = 1;
+  pmultiCount = 2;
   var html = "<span id=''>Grupo 1:</span><div class='mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield'><input class='mdl-textfield__input' type='text' pattern='-?[0-9]*(\.[0-9]+)?' id='pm1'><label class='mdl-textfield__label' for='pm1'>Repeticiones por Grupo</label><span class='mdl-textfield__error'>Debe ser un número!</span></div><span id=''>Grupo 2:</span><div class='mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield'><input class='mdl-textfield__input' type='text' pattern='-?[0-9]*(\.[0-9]+)?' id='pm2'><label class='mdl-textfield__label' for='pm2'>Repeticiones por Grupo</label><span class='mdl-textfield__error'>Debe ser un número!</span></div>";
   $('#pmultiRepeater').html(html);
   componentHandler.upgradeDom();
