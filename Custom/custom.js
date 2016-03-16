@@ -114,16 +114,18 @@ function Cnr(repeticion, n, r) {
 
 
 $('#calcular-guiado').click(function() {
-
+  //alert($('#agrupar').is(':checked'));
   if ($('#agrupar').is(':checked')) {
     if ($('#n').val().length == 0 || $('#r').val().length == 0) {
       alert("Completa los valores numéricos");
       return false;
-    } else {
-      if ($('#n').val().length == 0) {
-        alert("Completa el valor numérico");
-        return false;
-      }
+    }
+  }
+  else {
+
+    if ($('#n').val().length == 0) {
+      alert("Completa el valor numérico");
+      return false;
     }
   }
 
