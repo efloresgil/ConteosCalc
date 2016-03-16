@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matemáticas Discretas</title>
+  <link rel="stylesheet" href="mdl/material.min.css">
+  <link rel="stylesheet" href="Custom/flexboxgrid.min.css">
+  <link rel="stylesheet" href="Custom/custom.css">
+  <script defer src="mdl/material.min.js"></script>
+  <script defer src="Custom\jquery-1.12.1.min.js"></script>
+  <script defer src="Custom\jquery.animateNumber.min.js"></script>
+  <script defer src="Custom\jquery-ui.min.js"></script>
+  <script defer src="Custom\biginteger.js"></script>
+  <script defer src="Custom\custom.js"></script>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <!-- Simple header with scrollable tabs. -->
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title">Proyecto 2</span>
+      </div>
+      <!-- Tabs -->
+      <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+        <a href="#guiado" class="mdl-layout__tab is-active">Básico</a>
+        <a href="#menu" class="mdl-layout__tab">Partición</a>
+        <a href="#pmulti" class="mdl-layout__tab">P. Multigrupo</a>
+      </div>
+    </header>
+
+    <main class="mdl-layout__content">
+      <section class="mdl-layout__tab-panel is-active" id="guiado">
+        <div class="page-content">
+          <!--Contenido de la Tab-->
+          <div class="mdl-grid">
+            <div id="shake-guiado" class="mdl-cell mdl-cell--9-col mdl-shadow--4dp tabContentContainer">
+              <h3>Modo Básico:</h3>
+              <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--4-col">
+                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="orden_importa">
+                    <input type="checkbox" id="orden_importa" class="mdl-checkbox__input">
+                    <span class="mdl-checkbox__label">El Orden Importa</span>
+                  </label>
+                </div>
+
+                <div class="mdl-cell mdl-cell--4-col">
+                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="repeticion">
+                    <input type="checkbox" id="repeticion" class="mdl-checkbox__input">
+                    <span class="mdl-checkbox__label">Se puede repetir</span>
+                  </label>
+                </div>
+
+                <div class="mdl-cell mdl-cell--4-col">
+                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="agrupar">
+                    <input type="checkbox" id="agrupar" class="mdl-checkbox__input">
+                    <span class="mdl-checkbox__label">Agrupar</span>
+                  </label>
+                </div>
+
+                <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield">
+                  <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="n">
+                  <label class="mdl-textfield__label" for="n">Cantidad de Elementos</label>
+                  <span class="mdl-textfield__error">Debe ser un número!</span>
+                </div>
+
+                <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield">
+                  <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="r" disabled>
+                  <label class="mdl-textfield__label" for="r">En grupos de...</label>
+                  <span class="mdl-textfield__error">Debe ser un número!</span>
+                </div>
+              </div>
+
+              <div id="resultDiv-guiado">
+                <div class="row center-xs">
+                  <div class="mdl-cell--6-col col-md-6">
+                    <h1 id="resultado-guiado">X</h1>
+                    <span id="subtitulo-guiado" class="result-subtitle">Posibilidades</span>
+                    <strong id="tipo-guiado" class="result-subtitle"></strong>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Accent-colored raised button -->
+              <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect" id="calcular-guiado">
+                Calcular
+              </button>
+            </div>
+          </div>
+          <!--Contenido de la Tab-->
+        </div>
+      </section>
+      <section class="mdl-layout__tab-panel" id="menu">
+        <div class="page-content">
+          <div class="mdl-grid">
+            <div id="shake-guiado" class="mdl-cell mdl-cell--9-col mdl-shadow--4dp tabContentContainer">
+              <h3>Particiones:</h3>
+              <button id="resetGroup" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                Reestablecer
+              </button>
+              <div class="" id="wrapper">
+                <div class="mdl-grid">
+
+                  <ul id="groupRepeater" class="center mdl-cell mdl-cell--10-col demo-list-control mdl-list">
+                    <li class="mdl-list__item mdl-grid">
+                      <span id=''>Grupo 1:</span>
+                      <span class="mdl-cell mdl-cell--6 mdl-list__item-primary-content">
+                        <div class="mdl-textfield mdl-js-textfield">
+                          <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="n1">
+                          <label class="mdl-textfield__label" for="gr1">Total</label>
+                          <span class="mdl-textfield__error">Debe ser un número!</span>
+                        </div>
+                      </span>
+                      <span class="mdl-cell mdl-cell--6 mdl-list__item-secondary-action">
+                        <div class="mdl-textfield mdl-js-textfield">
+                          <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="r1">
+                          <label class="mdl-textfield__label" for="gr2">Deseados</label>
+                          <span class="mdl-textfield__error">Debe ser un número!</span>
+                        </div>
+                      </span>
+                    </li>
+                    <hr>
+                  </ul>
+                </div>
+
+                <div id="resultDiv-particion">
+                  <div class="row center-xs">
+                    <div class="mdl-cell--6-col col-md-6">
+                      <h1 id="resultado-particion">X</h1>
+                      <span id="subtitulo-particion" class="result-subtitle">Posibilidades</span>
+                      <strong id="tipo-guiado" class="result-subtitle"></strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect" id="calcular-particion">
+                Calcular
+              </button>
+              <button id="addGroup" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                Nuevo Grupo
+              </button>
+
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="mdl-layout__tab-panel" id="pmulti">
+        <div class="page-content">
+          <!--Contenido de la Tab-->
+          <div class="mdl-grid">
+            <div id="shake-guiado" class="mdl-cell mdl-cell--9-col mdl-shadow--4dp tabContentContainer">
+              <h3>P. con Repetición (Multigrupo):</h3>
+              <button id="resetPmulti" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                Reestablecer
+              </button>
+              <div id="pmultiRepeater" class="mdl-grid">
+
+                <span id=''>Grupo 1:</span>
+                <div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield">
+                  <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="pm1">
+                  <label class="mdl-textfield__label" for="pm1">Repeticiones por Grupo</label>
+                  <span class="mdl-textfield__error">Debe ser un número!</span>
+                </div>
+
+                <span id=''>Grupo 2:</span>
+                <div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield">
+                  <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="pm2">
+                  <label class="mdl-textfield__label" for="pm2">Repeticiones por Grupo</label>
+                  <span class="mdl-textfield__error">Debe ser un número!</span>
+                </div>
+
+              </div>
+
+              <div id="resultDiv-pmulti">
+                <div class="row center-xs">
+                  <div class="mdl-cell--6-col col-md-6">
+                    <h1 id="resultado-pmulti">X</h1>
+                    <span id="subtitulo-guiado" class="result-subtitle">Posibilidades</span>
+
+                  </div>
+                </div>
+              </div>
+
+              <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect" id="calcular-pmulti">
+                Calcular
+              </button>
+              <button id="addPmulti" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                Nuevo Grupo
+              </button>
+            </div>
+          </div>
+          <!--Contenido de la Tab-->
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+.tabContentContainer
+{
+  margin: 0 auto;
+  margin-top: 4em;
+  padding-left: 4em;
+  padding-right: 4em;
+}
+.hide{
+  display: none;
+}
+.result-number{
+  font-size: 112px;
+}
+
+#resultado-guiado{
+  margin-bottom: 0px;
+}
+
+#calcular-guiado, #calcular-particion, #addGroup, #resetGroup, #addPmulti, #calcular-pmulti{
+  margin-bottom: 1em;
+}
+
+#resultDiv-guiado{
+  margin-bottom: 1em;
+}
+
+.center{
+  margin: 0 auto;
+}
+.mdl-layout__tab-bar-button{
+  display: none;
+}
