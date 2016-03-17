@@ -30,3 +30,8 @@
 .mdl-layout__tab-bar-button{
   display: none;
 }
+
+
+.tabContentContainer h1{
+  word-wrap: break-word;
+}
